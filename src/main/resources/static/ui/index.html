@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ActivitiDemo</title>
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/component/AjaxUtils.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#btnPost").click(function(){
+    			ajaxUtils.postAjax("/hello", {}, function(res){
+    				console.log(res);
+    			}, function(err){
+    				console.log(err);
+    			});
+    		});
+    	});
+    </script>
+</head>
+<body>
+	<button id="btnPost">hello</button><br/>
+</body>
+</html>
