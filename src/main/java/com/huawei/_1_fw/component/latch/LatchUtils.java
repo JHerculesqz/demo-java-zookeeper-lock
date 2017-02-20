@@ -14,14 +14,17 @@ public class LatchUtils {
 
 	// #region run
 
-	public void run(ILatchCallback oILatchCallback, int iTimeoutMs) {
+	public boolean run(ILatchCallback oILatchCallback, int iTimeoutMs) {
 		LatchTask oTask = new LatchTask(oILatchCallback, latch);
+		ThreadPoolUtils.getProvider().init(2, 4, 3, 3, 2, 4, 3, 3);
 		ThreadPoolUtils.getProvider().submit4Bu(oTask);
 		boolean bInTime = wait(iTimeoutMs);
 		if (!bInTime) {
 			System.out.println("latch timeout...");
 			oTask.stop();
 		}
+
+		return bInTime;
 	}
 
 	// #region _wait
