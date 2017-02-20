@@ -3,6 +3,8 @@
 使用zookeeper实现分布式锁
 	
 #实现原理#
+	
+	详见代码,你懂的
 
 #reference#
 	
